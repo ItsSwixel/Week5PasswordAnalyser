@@ -6,5 +6,4 @@ def check(password):
         if item == password:
             return True
             break
-        else:
-            return False
+    return False
