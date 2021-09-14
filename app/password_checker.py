@@ -5,7 +5,6 @@ def password_check(password):
     for item in password_list:
         if item == password:
             return True
-            break
     return False
 
 if __name__ == '__main__':
