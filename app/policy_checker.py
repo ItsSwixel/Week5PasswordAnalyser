@@ -29,27 +29,19 @@ def policy_check(password):
     for letter in password:
         if letter in string.ascii_uppercase:
             uppercase_counter += 1
-            print("Uppercase counter updated")
         if letter in numbers:
             number_count += 1
-            print("Number counter updated")
         if letter in special:
             special_count += 1
-            print("Special counter updated")
 
         if last_char is not None:
             if letter == last_char:
-                print("Dupe letter:", letter)
                 dupe_count += 1
                 if dupe_count >= 2 and "Password contains 3 or more consecutive duplicate values" not in issues:
                     issues.append("Password contains 3 or more consecutive duplicate values")
             else:
                 dupe_count = 0
-        print("Last char:", last_char)
         last_char = letter
-        print("Dupe count:", dupe_count)
-        print("New last char:", last_char)
-        print()
     if uppercase_counter == 0:
         issues.append("Password does not contain an uppercase letter")
     if number_count == 0:
