@@ -4,7 +4,7 @@ import datetime
 password list as parameters
 - Prints report to the screen
 - Will send all data to a log file upon request and log file will have unique name
-- returns True if password is strong, returns filename if its weak and they wanted it exports, returns False if its 
+- returns True if password is strong, returns filename if its weak and they wanted it exports, returns False if its
 weak and no file was made
 """
 
@@ -34,7 +34,7 @@ def report_generator(issues, info_found, common_found, password):
 
 def file_gen(issues, info_found, common_found, password):
     basename = "password_report"
-    suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+    suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S.log")
     file_name = "_".join([basename, suffix])
     with open(file_name, "w") as f:
         f.write(f"This is the generated file password report for {password}: \n")
