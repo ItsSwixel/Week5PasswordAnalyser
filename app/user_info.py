@@ -36,7 +36,7 @@ def get_userinfo():
     return first_name, last_name, birthday, password
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     first_name, last_name, birthday, password = get_userinfo()
 
