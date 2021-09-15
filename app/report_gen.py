@@ -20,4 +20,4 @@ def report_generator(issues, info_found, common_found):
 
 
 if __name__ == '__main__':
-    report_generator([], False)
+    report_generator([], False, False)
