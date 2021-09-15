@@ -1,6 +1,7 @@
 from random import *
 import policy_checker
 import password_checker
+# Needs a final check against personal information
 
 # ------------------------GENERATE PASSWORD-----------------------------
 generated_pass_list = []
@@ -33,7 +34,7 @@ def random_password():
             random_password()
         another_password = input("Generate another password (Y/N): ").upper()
 
-    return password
+    return generated_pass_list
 
 
 if __name__ == '__main__':
