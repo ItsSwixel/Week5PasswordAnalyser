@@ -1,4 +1,5 @@
 import datetime
+import getpass
 
 def get_userinfo():
 
@@ -31,7 +32,13 @@ def get_userinfo():
         except ValueError:
             print("\n Wrong date format! \n")
 
-    password = input("Please enter your password: ")
+    while True:
+        password = getpass.getpass("Please enter your password: ")
+
+        if len(password) > 20:
+            print("\n Password is too large! \n")
+        else:
+            break
 
     return first_name, last_name, birthday, password
 
