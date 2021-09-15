@@ -47,7 +47,3 @@ def policy_check(password):
         issues.append("Password does not contain a special character")
 
     return issues
-
-
-if __name__ == '__main__':
-    print(policy_check("Lewis1999999999999999999999@"))

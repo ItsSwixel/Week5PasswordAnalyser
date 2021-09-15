@@ -7,7 +7,3 @@ def password_check(password):
         if item == password:
             return True
     return False
-
-if __name__ == '__main__':
-    
-    print(password_check("goodP4ssword!"))

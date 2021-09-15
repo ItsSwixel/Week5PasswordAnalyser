@@ -16,8 +16,3 @@ def data_store(first_name, last_name, birthday, password, file_name=None):
                     f"INSERT INTO passwords (first_name, last_name, birthday, password, log_file) VALUES ('{first_name}', '{last_name}', '{birthday}', '{password}', '{file_name}');")
                 conn.commit()
     return
-
-
-if __name__ == '__main__':
-    data_store("lewis", "blaine", "2000-05-08", "test_password")
-    data_store("lewis", "blaine", "2000-05-08", "test_password", "password_report_210915_140130")

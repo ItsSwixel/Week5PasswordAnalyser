@@ -9,7 +9,7 @@ weak and no file was made
 """
 
 
-def report_generator(issues, info_found, common_found):
+def report_generator(issues, info_found, common_found, password):
     if len(issues) == 0 and not info_found and not common_found:
         print("Your password is strong!")
         return True
@@ -26,18 +26,18 @@ def report_generator(issues, info_found, common_found):
             print("Please only enter Y or N\n")
             gen_file = input("Would you like your report generated into a file? Y or N  ")
         if gen_file.upper() == "Y":
-            file_name = file_gen(issues, info_found, common_found)
+            file_name = file_gen(issues, info_found, common_found, password)
             return file_name
         else:
             return False
 
 
-def file_gen(issues, info_found, common_found):
+def file_gen(issues, info_found, common_found, password):
     basename = "password_report"
     suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
     file_name = "_".join([basename, suffix])
     with open(file_name, "w") as f:
-        f.write("This is the generated file password report: \n")
+        f.write(f"This is the generated file password report for {password}: \n")
         for item in issues:
             f.write(str(item) + "\n")
         if info_found:
@@ -45,7 +45,3 @@ def file_gen(issues, info_found, common_found):
         if common_found:
             f.write("Your password was found in the top 10,000 most common passwords\n")
     return file_name
-
-
-if __name__ == '__main__':
-    report_generator(["Password contains 3 or more consecutive duplicate values"], True, True)

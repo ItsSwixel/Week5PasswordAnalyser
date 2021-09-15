@@ -1,13 +1,15 @@
 from random import *
 import policy_checker
 import password_checker
+import user_info_checker
+import datetime
 # Needs a final check against personal information
 
 # ------------------------GENERATE PASSWORD-----------------------------
 generated_pass_list = []
 
 
-def random_password():
+def random_password(first_name, last_name, birthday):
     another_password = "Y"
     while another_password == "Y":
         letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -27,15 +29,10 @@ def random_password():
         shuffle(password_list)
         shuffle(password_list)
         password = "".join(password_list)
-        if policy_checker.policy_check(password) == [] and password_checker.password_check(password) is False:
+        if policy_checker.policy_check(password) == [] and password_checker.password_check(password) is False and user_info_checker.user_info_check(first_name, last_name, birthday, password) is False:
             print(password)
             generated_pass_list.append(password)
-        else:
-            random_password()
-        another_password = input("Generate another password (Y/N): ").upper()
-
+            another_password = input("Generate another password (Y/N): ").upper()
+        if another_password == "N":
+            break
     return generated_pass_list
-
-
-if __name__ == '__main__':
-    random_password()
