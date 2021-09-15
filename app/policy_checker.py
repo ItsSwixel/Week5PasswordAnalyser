@@ -15,9 +15,6 @@ Returns a list containing all of the issues found, each as an entry
 
 
 def policy_check(password):
-    numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-    special = ['~', ':', "'", '+', '[', '@', '^', '{', '%', '(', '-', '"', '*', '|', ',', '&', '<', '`', '}', '.', '_',
-               '=', ']', '!', '>', ';', '?', '#', '$', ')', '/']
     last_char = None
     uppercase_counter = 0
     number_count = 0
@@ -29,9 +26,9 @@ def policy_check(password):
     for letter in password:
         if letter in string.ascii_uppercase:
             uppercase_counter += 1
-        if letter in numbers:
+        if letter in string.digits:
             number_count += 1
-        if letter in special:
+        if letter in string.punctuation:
             special_count += 1
 
         if last_char is not None:
