@@ -1,4 +1,5 @@
 def password_check(password):
+
     with open("10000_common.txt", "r") as file:
         password_list = [line.strip() for line in file]
 
@@ -8,4 +9,5 @@ def password_check(password):
     return False
 
 if __name__ == '__main__':
+    
     print(password_check("goodP4ssword!"))

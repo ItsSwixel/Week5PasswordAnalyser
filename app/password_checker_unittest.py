@@ -9,5 +9,6 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(password_checker.password_check("t3st!t3st"), False)
         self.assertEqual(password_checker.password_check("n0t4p455W0rd~"), False)
         self.assertEqual(password_checker.password_check("t3st!nG"), False)
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
