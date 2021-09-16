@@ -45,7 +45,6 @@ def menu():
                 user = UserClass(user_info.get_userinfo_password())
             else:
                 user.set_password()
-                password = user.password
             issues = policy_checker.policy_check(user.password)
             common = password_checker.password_check(user.password)
             personal = user_info_checker.user_info_check(user.first_name, user.last_name, user.birthday, user.password)
