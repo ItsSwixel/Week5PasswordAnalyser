@@ -1,4 +1,6 @@
 import datetime
+import getpass
+
 
 def get_userinfo_password():
 
@@ -31,12 +33,12 @@ def get_userinfo_password():
         except ValueError:
             print("\n Wrong date format! \n")
 
-    password = input("Please enter your password: ")
+    password = getpass.getpass(prompt="Please enter your password: ")
 
     return first_name, last_name, birthday, password
 
-def get_userinfo():
 
+def get_userinfo():
     while True:
             first_name = input("Please enter your first name: ")
 

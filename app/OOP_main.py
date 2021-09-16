@@ -6,6 +6,7 @@ import database_store
 import passgenerator
 import user_info_checker
 import sys
+import getpass
 
 
 class UserClass:
@@ -13,10 +14,11 @@ class UserClass:
         self.first_name = data[0]
         self.last_name = data[1]
         self.birthday = data[2]
-        self.password = data[3]
+        if len(data) > 3:
+            self.password = data[3]
 
     def set_password(self):
-        self.password = input("Please enter your next password: ")
+        self.password = getpass.getpass(prompt="Please enter your next password: ")
 
 
 def menu_options():
@@ -56,7 +58,7 @@ def menu():
 
         elif menu_option == '2':
             if counter == 0:
-                user = UserClass(user_info.get_userinfo_password())
+                user = UserClass(user_info.get_userinfo())
             pass_list = passgenerator.random_password(user.first_name, user.last_name, user.birthday)
             for item in pass_list:
                 database_store.data_store(user.first_name, user.last_name, user.birthday, item)
